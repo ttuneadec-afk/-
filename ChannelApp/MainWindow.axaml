@@ -1,0 +1,56 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ChannelControlApp.MainWindow"
+        Title="Управление каналообразованием"
+        Width="960" Height="600"
+        WindowStartupLocation="CenterScreen">
+
+    <Panel>
+        <!-- Декоративный градиент фона, как у главного меню игры -->
+        <Panel.Background>
+            <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                <GradientStop Color="#1E2A3A" Offset="0" />
+                <GradientStop Color="#101822" Offset="1" />
+            </LinearGradientBrush>
+        </Panel.Background>
+
+        <Grid RowDefinitions="Auto,*,Auto" Margin="0">
+
+            <!-- Заголовок -->
+            <StackPanel Grid.Row="0" Margin="0,28,0,8" HorizontalAlignment="Center">
+                <TextBlock Text="СИСТЕМА ТЕХНОЛОГИЧЕСКОГО УПРАВЛЕНИЯ"
+                           FontSize="22" FontWeight="Bold"
+                           Foreground="#E8F0FA"
+                           HorizontalAlignment="Center" />
+                <TextBlock Text="оборудование каналообразования · мобильные операционные системы"
+                           FontSize="13" Opacity="0.7" Foreground="#9DB4CE"
+                           Margin="0,6,0,0" HorizontalAlignment="Center" />
+            </StackPanel>
+
+            <!-- Меню: показывается, когда Host пуст -->
+            <StackPanel Grid.Row="1" x:Name="MenuPanel"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Width="320" Spacing="14">
+                <Button x:Name="BtnStart" Content="ЗАПУСТИТЬ КОНТРОЛЬ"
+                        Height="52" FontSize="16" FontWeight="SemiBold"
+                        Click="OnStart" />
+                <Button x:Name="BtnChannels" Content="КАНАЛЫ"
+                        Height="52" FontSize="16" FontWeight="SemiBold"
+                        Click="OnChannels" />
+                <Button x:Name="BtnSettings" Content="НАСТРОЙКИ"
+                        Height="52" FontSize="16" FontWeight="SemiBold"
+                        Click="OnSettings" />
+                <Button x:Name="BtnAbout" Content="О СИСТЕМЕ"
+                        Height="52" FontSize="16" FontWeight="SemiBold"
+                        Click="OnAbout" />
+            </StackPanel>
+
+            <!-- Хост для внутренних экранов -->
+            <ContentControl Grid.Row="1" x:Name="Host" Margin="24,12,24,12" />
+
+            <Button Grid.Row="2" x:Name="BtnBack" Content="← НАЗАД В МЕНЮ"
+                    HorizontalAlignment="Center" Margin="0,0,0,20"
+                    IsVisible="False" Click="OnBack" />
+        </Grid>
+    </Panel>
+</Window>
